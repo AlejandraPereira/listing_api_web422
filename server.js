@@ -101,3 +101,5 @@ app.delete('/api/listings/:id', (req, res) => {
     });
 
 });
+
+module.exports = app;
