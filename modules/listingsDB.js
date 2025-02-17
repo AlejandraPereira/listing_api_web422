@@ -45,12 +45,12 @@ class ListingDB {
 
     // Return paginated results 
 
-    paginatedResults(page, pageSize) {
+    paginatedResults(page, pageSize,name='') {
         return new Promise((resolve, reject) => {
             const skip = (page - 1) * pageSize; // Calculate how many results to skip
     
             // Find the results in the database
-            SampleAirbnb.find() // Find all records
+            SampleAirbnb.find({ name: { $regex: name, $options: 'i' } }) // Find all records
                 .skip(skip) // Skip the results corresponding to the page
                 .limit(pageSize) // Limit the results to the page size
                 .then(results => {
