@@ -59,8 +59,9 @@ app.get('/api/listings', (req, res) => {
     // Extract page and pageSize from the query string, default to 1 and 10 if not provided
     const page = parseInt(req.query.page) || 1; // Default to page 1
     const pageSize = parseInt(req.query.pageSize) || 10; // Default to 10 items per page
+    const name = req.query.name ? req.query.name.toLowerCase() : '';
 
-    db.paginatedResults(page, pageSize)
+    db.paginatedResults(page, pageSize,name)
         .then(results => {
             res.status(200).json(results); // Respond with the fetched listings
         })
