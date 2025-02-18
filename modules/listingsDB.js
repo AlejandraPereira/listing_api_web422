@@ -50,7 +50,7 @@ class ListingDB {
             const skip = (page - 1) * pageSize; // Calculate how many results to skip
     
             // Find the results in the database
-            SampleAirbnb.find() // Find all records
+            SampleAirbnb.find(filter) // Find all records
                 .skip(skip) // Skip the results corresponding to the page
                 .limit(pageSize) // Limit the results to the page size
                 .then(results => {
