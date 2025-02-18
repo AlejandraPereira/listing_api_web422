@@ -45,7 +45,7 @@ class ListingDB {
 
     // Return paginated results 
 
-    paginatedResults(page, pageSize) {
+    paginatedResults(page, pageSize, filter ={}) {
         return new Promise((resolve, reject) => {
             const skip = (page - 1) * pageSize; // Calculate how many results to skip
     
