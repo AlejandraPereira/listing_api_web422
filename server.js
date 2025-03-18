@@ -63,7 +63,6 @@ app.get('/api/listings', (req, res) => {
 
 
     db.paginatedResults(page, pageSize,nameFilter)
-        .sort({ "review_scores.review_scores_rating": -1 })
         .then(results => {
             res.status(200).json(results); // Respond with the fetched listings
         })
