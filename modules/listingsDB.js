@@ -51,7 +51,7 @@ class ListingDB {
     
             // Find the results in the database
             SampleAirbnb.find(filter) // Find all records
-                .sort({ "review_scores.review_scores_rating": -1 })
+                .sort({ "number_of_reviews": -1 })
                 .skip(skip) // Skip the results corresponding to the page
                 .limit(pageSize) // Limit the results to the page size
                 .then(results => {
